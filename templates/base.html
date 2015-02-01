@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,300italic" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<title>Pecuina your Bitcoin bank</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/flexslider.css') }}" type="text/css" media="screen">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prettyPhoto.css') }}" type="text/css" media="screen">
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" media="screen">
+<script type="text/javascript" src="{{ url_for('static', filename='js/modernizr.custom.48287.js') }}"></script>
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='images/apple-touch-icon-114x114-precomposed.png') }}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='images/apple-touch-icon-72x72-precomposed.png') }}">
+<link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='images/apple-touch-fa-57x57-precomposed.png') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+</head>
+<body>
+<header>
+<div class="container">
+  <div class="navbar navbar-default" role="navigation">
+       <div class="navbar-header"><a class="navbar-brand" href="index.html"> <img src="{{ url_for('static', filename='images/restart_logo.png') }}" alt="optional logo" height="90" width="90"> <span class="logo_title"><strong>Pecunia</strong></span> <span class="logo_subtitle">Your Bitcoin Bank</span> </a><a class="btn btn-navbar btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="nb_left pull-left"> <span class="fa fa-reorder"></span></span> <span class="nb_right pull-right">menu</span> </a></div>
+       <div class="collapse navbar-collapse">
+            <ul class="nav pull-right navbar-nav">
+                 <li class="active"><a href="index.html">Home</a></li>
+                 <li><a href="about_us.html">About Us</a></li>
+                 <li><a href="services.html">Services</a></li>
+                 <li><a href="portfolio.html">Portfolio</a></li>
+                 <li><a href="contact.html">Contact</a></li>
+                 <li class="dropdown"> <a data-toggle="dropdown" class="dropdown-toggle" href="#">Pages<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                           <li><a href="home_alternative.html">Home Alternative</a></li>
+                           <li><a href="page_alternative.html">Page Alternative</a></li>
+                           <li><a href="gallery.html">Portfolio Masonry</a></li>
+                           <li><a href="portfolio_item.html">Portfolio Item</a></li>
+                           <li><a href="portfolio_item_2.html">Portfolio Item II</a></li>
+                           <li><a href="single_post.html">Single Post</a></li>
+                           <li><a href="404.html">ERROR 404</a></li>
+                           <li><a href="register.html">Register or Sign in</a></li>
+                           <li><a href="elements.html">Design Elements</a></li>
+                           <li><a href="documentation/index.html">Documentation <span class="label label-danger">new</span></a></li>
+                      </ul>
+                 </li>
+            </ul>
+       </div>
+  </div>
+  <div id="social_media_wrapper"> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com/leonartgr"><i class="fa fa-twitter"></i></a> <a href="#googleplus"><i class="fa fa-google-plus"></i></a> </div>
+  <div id="sign"><a href="register.html"><i class="fa fa-user"></i><span>Register/Sign in</span></a></div>
+</div>
+</header>
+{% block content %}{% endblock %}
+</body>
+</html>

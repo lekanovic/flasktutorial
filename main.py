@@ -17,5 +17,9 @@ def index():
 def user(name):
     return render_template('user.html', name=name)
 
+@app.route('/register.html')
+def register():
+    return render_template('register.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

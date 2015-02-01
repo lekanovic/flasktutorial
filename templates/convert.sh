@@ -36,3 +36,7 @@ grep -rl 'images/portfolio/a5.jpg' ./ | xargs sed -i "s#images/portfolio/a5.jpg#
 grep -rl 'images/portfolio/p1.jpg' ./ | xargs sed -i "s#images/portfolio/p1.jpg#{{ url_for('static', filename='images/p1.jpg') }}#g"
 grep -rl 'images/portfolio/t5.jpg' ./ | xargs sed -i "s#images/portfolio/t5.jpg#{{ url_for('static', filename='images/t5.jpg') }}#g"
 grep -rl 'images/portfolio/t4.jpg' ./ | xargs sed -i "s#images/portfolio/t4.jpg#{{ url_for('static', filename='images/t4.jpg') }}#g"
+grep -rl 'favicon.png' ./ | xargs sed -i "s#favicon.png#{{ url_for('static', filename='images/favicon.png') }}#g"
+grep -rl 'apple-touch-fa-57x57-precomposed.png' ./ | xargs sed -i "s#apple-touch-fa-57x57-precomposed.png#{{ url_for('static', filename='images/apple-touch-fa-57x57-precomposed.png') }}#g"
+grep -rl 'apple-touch-icon-114x114-precomposed.png' ./ | xargs sed -i "s#apple-touch-icon-114x114-precomposed.png#{{ url_for('static', filename='images/apple-touch-icon-114x114-precomposed.png') }}#g"
+grep -rl 'apple-touch-icon-72x72-precomposed.png' ./ | xargs sed -i "s#apple-touch-icon-72x72-precomposed.png#{{ url_for('static', filename='images/apple-touch-icon-72x72-precomposed.png') }}#g"

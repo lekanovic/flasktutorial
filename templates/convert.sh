@@ -36,4 +36,3 @@ grep -rl 'images/portfolio/a5.jpg' ./ | xargs sed -i "s#images/portfolio/a5.jpg#
 grep -rl 'images/portfolio/p1.jpg' ./ | xargs sed -i "s#images/portfolio/p1.jpg#{{ url_for('static', filename='images/p1.jpg') }}#g"
 grep -rl 'images/portfolio/t5.jpg' ./ | xargs sed -i "s#images/portfolio/t5.jpg#{{ url_for('static', filename='images/t5.jpg') }}#g"
 grep -rl 'images/portfolio/t4.jpg' ./ | xargs sed -i "s#images/portfolio/t4.jpg#{{ url_for('static', filename='images/t4.jpg') }}#g"
-

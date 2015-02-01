@@ -13,10 +13,10 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" media="screen">
 <script type="text/javascript" src="{{ url_for('static', filename='js/modernizr.custom.48287.js') }}"></script>
 <!-- Fav and touch icons -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="apple-touch-fa-57x57-precomposed.png">
-<link rel="shortcut icon" href="favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ url_for('static', filename='images/apple-touch-icon-114x114-precomposed.png') }}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ url_for('static', filename='images/apple-touch-icon-72x72-precomposed.png') }}">
+<link rel="apple-touch-icon-precomposed" href="{{ url_for('static', filename='images/apple-touch-fa-57x57-precomposed.png') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
 </head>
 <body>
 <header>
@@ -88,8 +88,8 @@
 <div class="main">
      <div class="container">
           <section class="call_to_action">
-               <h3>focus on what’s important</h3>
-               <h4>and  make the web a little bit  prettier</h4>
+               <h3>Latest price</h3>
+	       <h4><b>1BTC =</b> <b><font color="green">{{ price }}SEK</font></b></h4>
                <a class="btn btn-primary btn-lg" href="#">Buy this theme!</a></section>
           <section class="features_teasers_wrapper">
                <div class="row">

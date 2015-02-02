@@ -10,6 +10,7 @@ app.secret_key = '81fa886eb7cab2a148650b25cf6c40d0fa6edebbbf2704e1b7d1f92f68b934
 
 users = {'lekanovic@gmail.com':'78celeron'}
 
+
 def login_required(method):
     @functools.wraps(method)
     def wrapper(*args, **kwargs):
@@ -24,11 +25,12 @@ class Userhome(views.MethodView):
 
     @login_required
     def get(self):
-        return render_template('userhome.html',username="Radovan")
+        return render_template('userhome.html', username="Radovan")
 
     @login_required
     def post(self):
         pass
+
 
 class Signout(views.MethodView):
 
@@ -48,7 +50,7 @@ class Signin(views.MethodView):
     def post(self):
         email = request.form['Email address']
         passwd = request.form['Password']
-        require = ['Email address','Password']
+        require = ['Email address', 'Password']
         for r in require:
             if r not in request.form:
                 return "Wrong password or email"
@@ -59,6 +61,7 @@ class Signin(views.MethodView):
 
         return redirect(url_for('userhome'))
 
+
 class Register(views.MethodView):
 
     def get(self):
@@ -68,8 +71,9 @@ class Register(views.MethodView):
         username = request.form['Username']
         email = request.form['Email address']
         passwd = request.form['Password']
-        print "%s %s %s" % (username,email,passwd)
+        print "%s %s %s" % (username, email, passwd)
         return redirect(url_for('userhome'))
+
 
 class Main(views.MethodView):
 

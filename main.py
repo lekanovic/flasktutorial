@@ -28,9 +28,16 @@ class Userhome(views.MethodView):
 
     @login_required
     def post(self):
-        if 'logout' in request.form:
-            session.pop('email').pop()
-            return  render_template('index.html')
+        pass
+
+class Signout(views.MethodView):
+
+    def get(self):
+        session.pop('email', None)
+        return render_template('index.html')
+
+    def post(self):
+        pass
 
 
 class Signin(views.MethodView):
@@ -91,6 +98,7 @@ class Main(views.MethodView):
 main_view = Main.as_view('index')
 register_view = Register.as_view('register')
 signin_view = Signin.as_view('signin')
+signout_view = Signout.as_view('signout')
 userhome_view = Userhome.as_view('userhome')
 
 app.add_url_rule('/',
@@ -107,6 +115,10 @@ app.add_url_rule('/register.html',
 
 app.add_url_rule('/signin.html',
                  view_func=signin_view,
+                 methods=["GET", "POST"])
+
+app.add_url_rule('/signout.html',
+                 view_func=signout_view,
                  methods=["GET", "POST"])
 
 app.add_url_rule('/userhome.html',

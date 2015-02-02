@@ -3,6 +3,8 @@ from flask import Flask, render_template, request, views, redirect, url_for, ses
 from flask.ext.mongokit import MongoKit
 from flask.ext.bootstrap import Bootstrap
 import time, json, requests, urllib
+from btcprice import BTCPrice
+
 import functools
 
 app = Flask(__name__)
@@ -36,7 +38,7 @@ class Signout(views.MethodView):
 
     def get(self):
         session.pop('email', None)
-        return render_template('index.html')
+        return render_template('index.html',price=BTCPrice().getPrice())
 
     def post(self):
         pass
@@ -78,25 +80,10 @@ class Register(views.MethodView):
 class Main(views.MethodView):
 
     def get(self):
-        return render_template('index.html', price=self.btstamp())
+        return render_template('index.html', price=BTCPrice().getPrice())
 
     def post(self):
         return "POST"
-
-    def getDollarPrice(self):
-        url = "http://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote?format=json"
-        response = urllib.urlopen(url);
-        data = json.loads(response.read())
-        for i in range(0, data['list']['meta']['count']):
-            if data['list']['resources'][i]['resource']['fields']['name'] == "USD/SEK":
-                SEK = data['list']['resources'][i]['resource']['fields']['price']
-        return SEK
-
-    def btstamp(self):
-        bitStampTick = requests.get('https://www.bitstamp.net/api/ticker/')
-        bitcoinPrice = float(bitStampTick.json()['last'])
-        dollarInSek = float(self.getDollarPrice())
-        return "%.2f" % (bitcoinPrice * dollarInSek)
 
 
 main_view = Main.as_view('index')

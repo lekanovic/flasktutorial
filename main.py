@@ -17,6 +17,17 @@ class Userhome(views.MethodView):
         pass
 
 
+class Signin(views.MethodView):
+
+    def __init__(self):
+        super(Signin, self).__init__()
+
+    def get(self):
+        return render_template('signin.html')
+
+    def post(self):
+        pass
+
 class Register(views.MethodView):
 
     def get(self):
@@ -55,6 +66,7 @@ class Main(views.MethodView):
 
 main_view = Main.as_view('index')
 register_view = Register.as_view('register')
+signin_view = Signin.as_view('signin')
 userhome_view = Userhome.as_view('userhome')
 
 app.add_url_rule('/',
@@ -67,6 +79,10 @@ app.add_url_rule('/index.html',
 
 app.add_url_rule('/register.html',
                  view_func=register_view,
+                 methods=["GET", "POST"])
+
+app.add_url_rule('/signin.html',
+                 view_func=signin_view,
                  methods=["GET", "POST"])
 
 app.add_url_rule('/userhome.html',

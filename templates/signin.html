@@ -3,41 +3,45 @@
 <div class="main">
      <div class="container">
           <section class="hgroup">
-               <h1>Register account</h1>
+               <h1>Sign in</h1>
                <ul class="breadcrumb pull-right">
                     <li><a href="index.html">Home</a> </li>
                     <li class="active">Register of Sign in</li>
                </ul>
           </section>
           <section>
+               <div class="row">
                     <div class="col-sm-6 col-md-6">
-                         <div class="signup">
-                              <form action="{{url_for('register')}}" method="post">
-                                   <fieldset>
-                                        <div class="social_sign">
-                                             <h3>Don't have a site account yet?</h3>
-                                             <a><i class="fa fa-user"></i></a> </div>
-                                        <p class="sign_title">Create one now, it's fast &amp; free!</p>
-                                        <div class="row">
-                                             <div class="col-lg-2"></div>
-                                             <div class="col-lg-8">
-                                                  <input id="Username" name="Username" placeholder="Username" class="form-control" required="" type="text">
-                                                  <input id="Emailaddress" name="Email address" placeholder="Email address" class="form-control" required="" type="text">
-                                                  <input id="Password" name="Password" placeholder="Password" class="form-control" required="" type="password">
+                         <div class="signin">
+                              <div class="social_sign">
+                                   <h3>Sign in with your social account</h3>
+                                   <a class="fb" href="#facebook"><i class="fa fa-facebook"></i></a> <a class="tw" href="#twitter"><i class="fa fa-twitter"></i></a> <a class="gp" href="#googleplus"><i class="fa fa-google-plus"></i></a> </div>
+                              <div class="or">
+                                   <div class="or_l"></div>
+                                   <span>or</span>
+                                   <div class="or_r"></div>
+                              </div>
+                              <p class="sign_title">Log in with your site account</p>
+                              <div class="row">
+                                   <div class="col-lg-2"></div>
+                                   <div class="form col-lg-8">
+                                        <form>
+                                             <input placeholder="Email" class="form-control" type="text">
+                                             <input placeholder="Password" class="form-control" type="text">
+                                             <div class="forgot">
                                                   <div class="checkbox">
                                                        <label class="">
-                                                            <input name="checkboxes" value="Option one" type="checkbox">
-                                                            I agree to the <a href="#">terms and conditions</a> </label>
+                                                            <input type="checkbox">
+                                                            Remember me </label>
                                                   </div>
-                                             </div>
-                                             <div class="col-lg-2"></div>
-                                        </div>
-                                        <button type="submit" class="btn btn-success btn-lg">Create your account</button>
-                                   </fieldset>
-                              </form>
+                                                  <a href="#">Forgot password?</a> </div>
+                                             <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+                                        </form>
+                                   </div>
+                                   <div class="col-lg-2"></div>
+                              </div>
                          </div>
                     </div>
-               </div>
           </section>
      </div>
      <footer>

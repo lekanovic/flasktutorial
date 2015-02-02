@@ -6084,7 +6084,17 @@ header .container {
   color: #fff;
   background: #428bca;
 }
-#sign {
+#sign-register {
+  position: absolute;
+  top: 7px;
+  right: 200px;
+  font-size: 12px;
+  z-index: 101;
+  height: 50px;
+  line-height: 40px;
+  padding-right: 10px;
+}
+#sign-signin {
   position: absolute;
   top: 7px;
   right: 150px;

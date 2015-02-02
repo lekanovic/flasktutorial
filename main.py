@@ -1,32 +1,56 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, request, views, redirect, url_for
+from flask import Flask, render_template, request, views, redirect, url_for, session, flash
 from flask.ext.mongokit import MongoKit
 from flask.ext.bootstrap import Bootstrap
 import time, json, requests, urllib
+import functools
 
 app = Flask(__name__)
-#mongo = MongoKit(app)
-bootstrap = Bootstrap(app)
+app.secret_key = '81fa886eb7cab2a148650b25cf6c40d0fa6edebbbf2704e1b7d1f92f68b9344b'
+
+users = {'lekanovic@gmail.com':'78celeron'}
+
+def login_required(method):
+    @functools.wraps(method)
+    def wrapper(*args, **kwargs):
+        if 'email' in session:
+            return method(*args, **kwargs)
+        else:
+            return redirect(url_for('index'))
+    return wrapper
+
 
 class Userhome(views.MethodView):
 
+    @login_required
     def get(self):
         return render_template('userhome.html',username="Radovan")
 
+    @login_required
     def post(self):
-        pass
+        if 'logout' in request.form:
+            session.pop('email').pop()
+            return  render_template('index.html')
 
 
 class Signin(views.MethodView):
-
-    def __init__(self):
-        super(Signin, self).__init__()
 
     def get(self):
         return render_template('signin.html')
 
     def post(self):
-        pass
+        email = request.form['Email address']
+        passwd = request.form['Password']
+        require = ['Email address','Password']
+        for r in require:
+            if r not in request.form:
+                return "Wrong password or email"
+        if email in users and users[email] == passwd:
+            session['email'] = email
+        else:
+            flash("Username doesn't exist or incorrect password")
+
+        return redirect(url_for('userhome'))
 
 class Register(views.MethodView):
 
